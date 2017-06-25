@@ -3,9 +3,9 @@ set -e
 
 PYTHON_ENV_NAME=p3ml-venv
 
-pip install virtualenv
+# pip install virtualenv
 
-virtualenv -p python3 $PYTHON_ENV_NAME
+virtualenv -p python3.6 $PYTHON_ENV_NAME
 
 echo "source $(pwd)/$PYTHON_ENV_NAME/bin/activate" > .env
 
@@ -18,3 +18,6 @@ pip install pandas
 pip install scipy
 pip install seaborn
 pip install graphviz
+pip install theano
+# pip install tensorflow-gpu
+# pip install keras
