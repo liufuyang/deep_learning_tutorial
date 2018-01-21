@@ -2,6 +2,8 @@ p3ml-venv
 venv
 .env
 .DS_Store
+*.iml
+.idea
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
