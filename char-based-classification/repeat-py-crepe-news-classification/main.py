@@ -35,7 +35,7 @@ cat_output = 4
 
 #Compile/fit params
 batch_size = 80
-nb_epoch = 10
+nb_epoch = 20
 
 print('Loading data...')
 #Expect x to be a list of sentences. Y to be a one-hot encoding of the

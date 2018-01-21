@@ -10,7 +10,9 @@ def clean(s):
     """
     Remove rare characters and change everything to lowercase
     """
-    return re.sub(r'[^\x00-\x7f]', r'', s).lower()
+    s = re.sub(r'[^\x00-\x7f]', r'', s)
+    # s = re.sub("[^a-zA-Z]+", ' ', s)   # remove numbers
+    return s.lower()
 
 
 def load_ag_data():

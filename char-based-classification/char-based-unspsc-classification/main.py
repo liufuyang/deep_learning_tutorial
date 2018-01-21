@@ -16,20 +16,19 @@ model_name_path = 'data/crepe_model.json'
 model_weights_path = 'data/crepe_model_weights.h5'
 
 # Maximum length. Longer gets chopped. Shorter gets padded.
-maxlen = 200
+maxlen = 100
 
 # Model params
 # Filters for conv layers
-nb_filter = [128, 256, 512, 512]
+nb_filter = [256, 512, 512, 1024]
 # Conv layer kernel size
-filter_kernels = [10, 7, 3, 3]
+filter_kernels = [7, 5, 3, 2]
 # Number of units in the dense layer
-dense_outputs = 1024
-
+dense_outputs = 2048
 
 # Compile/fit params
 batch_size = 80
-nb_epoch = 10
+nb_epoch = 200
 
 print('Loading data...')
 # Expect x to be a list of sentences. Y to be a one-hot encoding of the categories.

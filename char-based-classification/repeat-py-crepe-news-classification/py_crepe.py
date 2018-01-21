@@ -1,5 +1,5 @@
 from keras.models import Model
-from keras.optimizers import SGD
+from keras.optimizers import SGD, Adam
 from keras.layers import Input, Dense, Dropout, Flatten
 from keras.layers.convolutional import Convolution1D, MaxPooling1D
 
@@ -42,8 +42,8 @@ def model(filter_kernels, dense_outputs, maxlen, vocab_size, nb_filter,
 
     model = Model(input=inputs, output=pred)
 
-    sgd = SGD(lr=0.01, momentum=0.9)
-    model.compile(loss='categorical_crossentropy', optimizer=sgd,
-                  metrics=['accuracy'])
+    sgd = SGD(lr=0.0001, momentum=0.9)
+    adam = Adam(lr=0.0005)
+    model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])
 
     return model

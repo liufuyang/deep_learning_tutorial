@@ -24,8 +24,7 @@ def model(filter_kernels, dense_outputs, maxlen, vocab_size, filters, unit_outpu
 
     # All the convolutional layers...
     conv = Convolution1D(filters=filters[0], kernel_size=filter_kernels[0],
-                         padding='same', activation='relu',
-                         input_shape=(maxlen, vocab_size))(embedded)
+                         padding='same', activation='relu')(embedded)
     conv = MaxPooling1D(pool_size=2)(conv)
 
     conv1 = Convolution1D(filters=filters[1], kernel_size=filter_kernels[1],
@@ -48,7 +47,7 @@ def model(filter_kernels, dense_outputs, maxlen, vocab_size, filters, unit_outpu
 
     # Two dense layers with dropout of .5
     z = Dropout(0.5)(Dense(dense_outputs, activation='relu')(conv5))
-    z = Dropout(0.5)(Dense(dense_outputs, activation='relu')(z))
+    #z = Dropout(0.5)(Dense(dense_outputs, activation='relu')(z))
 
     # Output dense layer with softmax activation
     pred = Dense(unit_output, activation='softmax', name='output')(z)
@@ -56,7 +55,7 @@ def model(filter_kernels, dense_outputs, maxlen, vocab_size, filters, unit_outpu
     _model = Model(inputs=inputs, outputs=pred)
 
     sgd = SGD(lr=0.01, momentum=0.9)
-    adam = Adam(lr=0.01)
-    _model.compile(loss='categorical_crossentropy', optimizer=adam,metrics=['accuracy'])
+    adam = Adam(lr=0.0005)
+    _model.compile(loss='categorical_crossentropy', optimizer=adam, metrics=['accuracy'])
 
     return _model
