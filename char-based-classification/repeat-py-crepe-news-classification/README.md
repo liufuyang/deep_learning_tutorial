@@ -20,6 +20,10 @@ It's relatively easy to modify the code to use a different vocabulary, e.g.,
 one learned from the training data, and to use different optimizers such as
 `adam`. 
 
+Dataset
+-------
+https://github.com/mhjabreel/CharCNN/tree/master/data/ag_news_csv
+
 Running
 -------
 

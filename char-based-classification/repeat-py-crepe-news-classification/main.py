@@ -45,7 +45,8 @@ print('Loading data...')
 print('Creating vocab...')
 vocab, reverse_vocab, vocab_size, check = data_helpers.create_vocab_set()
 
-test_data = data_helpers.encode_data(x_test, maxlen, vocab, vocab_size, check)
+# train_data = data_helpers.encode_data(xt, maxlen, vocab, vocab_size, check)
+# test_data = data_helpers.encode_data(x_test, maxlen, vocab, vocab_size, check)
 
 print('Build model...')
 
