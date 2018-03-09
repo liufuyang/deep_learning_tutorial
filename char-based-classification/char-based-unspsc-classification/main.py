@@ -20,14 +20,14 @@ maxlen = 100
 
 # Model params
 # Filters for conv layers
-nb_filter = [256, 512, 512, 1024]
+nb_filter = [512, 512, 512, 512, 512, 512]
 # Conv layer kernel size
-filter_kernels = [7, 5, 3, 2]
+filter_kernels = [7, 7, 3, 3, 3, 3]
 # Number of units in the dense layer
 dense_outputs = 2048
 
 # Compile/fit params
-batch_size = 80
+batch_size = 128
 nb_epoch = 200
 
 print('Loading data...')

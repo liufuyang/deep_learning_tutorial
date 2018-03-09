@@ -10,8 +10,8 @@ def clean(s):
     """
     Remove rare characters and change everything to lowercase
     """
-    s = re.sub(r'[^\x00-\x7f]', r'', s)
-    # s = re.sub("[^a-zA-Z]+", ' ', s)   # remove numbers
+    # s = re.sub(r'[^\x00-\x7f]', r'', s)
+    s = re.sub("[^a-zA-Z]+", ' ', s)   # remove numbers
     return s.lower()
 
 
@@ -69,12 +69,12 @@ def create_vocab_set():
     # This alphabet is 69 chars vs. 70 reported in the paper since they include two
     # '-' characters. See https://github.com/zhangxiangxiao/Crepe#issues.
 
-    alphabet = (list(string.ascii_lowercase) + list(string.digits) +
-                list(string.punctuation) + ['\n', ' '])
+    alphabet = (list(string.ascii_lowercase) +  # list(string.digits) + list(string.punctuation) + ['\n', ' ']
+                [' '])
     # alphabet = set(alphabet)
     vocab_size = len(alphabet)
 
-    vocab = {} # dictionary, key as characters, values as index of a char in check
+    vocab = {}  # dictionary, key as characters, values as index of a char in check
     reverse_vocab = {}
     for ix, t in enumerate(alphabet):
         vocab[t] = ix
