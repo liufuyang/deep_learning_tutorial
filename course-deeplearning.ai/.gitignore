@@ -1,0 +1,3 @@
+*.npy
+**/readonly
+**/.ipynb_checkpoints
