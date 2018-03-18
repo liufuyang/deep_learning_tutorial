@@ -18,27 +18,32 @@ def clean(s):
 def load_ag_data():
 
     # for train data
-    train = pd.read_csv('data/train.csv', header=None)
+    train = pd.read_csv('data/train.csv')
     train = train.dropna()
 
-    x_train = train[0]
-    x_train = x_train.apply(clean)
+    label_array = list(train['UNSPSC'].sort_values().unique())
+
+    train['Product Name'] = train['Product Name'].apply(clean)
+    train = train.drop_duplicates(subset=['Product Name'], keep=False)
+
+    x_train = train['Product Name']
+    # x_train = x_train.apply(clean)
     x_train = np.array(x_train)
 
-    y_train_unspsc = train[1]
-    label_array = list(y_train_unspsc.sort_values().unique())
-    y_train = y_train_unspsc.apply(lambda c: label_array.index(c))
+    y_train = train['UNSPSC'].apply(lambda c: label_array.index(c))
     y_train = to_categorical(y_train)
 
     # for test data
 
-    test = pd.read_csv('data/test.csv', header=None)
-    x_test = test[0]
-    x_test = x_test.apply(clean)
+    test = pd.read_csv('data/test.csv')
+    test['Product Name'] = test['Product Name'].apply(clean)
+    # test = test.drop_duplicates(subset=['Product Name'], keep=False)
+
+    x_test = test['Product Name']
+    # x_test = x_test.apply(clean)
     x_test = np.array(x_test)
 
-    y_test_unspsc = test[1]
-    y_test = y_test_unspsc.apply(lambda c: label_array.index(c))
+    y_test = test['UNSPSC'].apply(lambda c: label_array.index(c))
     y_test = to_categorical(y_test)
 
     return (x_train, y_train), (x_test, y_test), label_array
