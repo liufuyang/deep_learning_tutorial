@@ -51,7 +51,7 @@ def load_ag_data():
 
 def encode_data(x, maxlen, vocab):
     # Iterate over the loaded data and create a 1-D tensor of size maxlen
-    # In this case that will be 200. This is then placed in a 3D matrix of size
+    # In this case that will be 200. This is then placed in a 2D matrix of size
     # data_samples x maxlen. Each character is encoded into a one-hot
     # array. Chars not in the vocab are encoded into an all zero vector.
 
