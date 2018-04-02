@@ -18,6 +18,6 @@ pip install pandas
 pip install scipy
 pip install seaborn
 pip install graphviz
-pip install theano
+# pip install theano
 # pip install tensorflow-gpu
 # pip install keras
